@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Praktikum Multimedia - Modul 2</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background-color: #071b8d;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #374151;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 25px auto;
+            padding: 0 18px;
+        }
+
+        section {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #1f2937;
+        }
+
+        audio,
+        video,
+        iframe {
+            max-width: 100%;
+        }
+
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            aspect-ratio: 16 / 9;
+        }
+
+        .youtube-container iframe {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .drop-area {
+            display: inline-block;
+            width: 180px;
+            min-height: 100px;
+            margin: 10px;
+            padding: 15px;
+            border: 2px dashed #555;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        #dragItem {
+            cursor: grab;
+            padding: 15px;
+            background-color: #e5e7eb;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f2937;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Praktikum Multimedia</h1>
+
+        <p>
+            Modul 2: HTML Audio, Video, YouTube dan API
+        </p>
+
+        <p>
+            Nama: Brandon Sumarlie
+            <br>
+            NIM : 240211060117
+        </p>
+    </header>
+
+
+    <nav>
+        <a href="#audio">Audio</a>
+
+        <a href="#video">Video</a>
+
+        <a href="#youtube">YouTube</a>
+
+        <a href="#geo">Geolocation API</a>
+
+        <a href="#dragdrop">Drag and Drop API</a>
+    </nav>
+
+
+    <main>
+
+        <!-- AUDIO -->
+        <section id="audio">
+
+            <h2>1. HTML Audio</h2>
+
+            <p>
+                Elemen
+                <b>&lt;audio&gt;</b>
+                digunakan untuk menampilkan suara pada halaman web.
+            </p>
+
+            <audio controls>
+                <source
+                    src="https://videotourl.com/audio/1790174575221-e1b9bf57-a700-4a45-815c-af8154f6c17d.mp3"
+                    type="audio/mpeg">
+
+                Browser Anda tidak mendukung elemen audio.
+
+            </audio>
+            <p>
+                ONE OF THE BEST SONG IN THE WORLD !!!!!
+            </p>
+            <p>
+                Format audio HTML5 yang dibahas dalam modul:
+                MP3, WAV, dan OGG.
+            </p>
+
+        </section>
+
+
+        <!-- VIDEO -->
+        <section id="video">
+
+            <h2>2. HTML Video</h2>
+
+            <p>
+                Elemen
+                <b>&lt;video&gt;</b>
+                digunakan untuk menampilkan video pada halaman web.
+            </p>
+
+            <video
+                id="video1"
+                width="500"
+                controls>
+
+                <source
+                    src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    type="video/mp4">
+
+                Browser Anda tidak mendukung elemen video.
+
+            </video>
+
+            <br>
+
+            <button onclick="playPause()">
+                Play / Pause
+            </button>
+
+            <button onclick="makeBig()">
+                Big
+            </button>
+
+            <button onclick="makeSmall()">
+                Small
+            </button>
+
+            <button onclick="makeNormal()">
+                Normal
+            </button>
+
+            <p>
+                Format video HTML5:
+                MP4, WebM, dan OGG.
+            </p>
+
+        </section>
+
+
+        <section id="youtube">
+
+            <h2>3. YouTube Video</h2>
+
+            <p>
+                Video YouTube dapat ditampilkan menggunakan elemen
+                <b>&lt;iframe&gt;</b>.
+            </p>
+
+            <div class="youtube-container">
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/NV9Wc0bxeVo"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p>
+                YouTube dapat menggunakan parameter seperti
+                autoplay, loop, dan controls.
+            </p>
+
+        </section>
+
+
+        <section id="geo">
+
+            <h2>4. HTML Geolocation API</h2>
+
+            <p>
+                Geolocation API digunakan untuk mendapatkan
+                posisi geografis pengguna.
+            </p>
+
+            <button onclick="getLocation()">
+                Tampilkan Koordinat
+            </button>
+
+            <p id="demo">
+                Koordinat akan ditampilkan di sini.
+            </p>
+
+        </section>
+
+
+        <section id="dragdrop">
+
+            <h2>5. HTML Drag and Drop API</h2>
+
+            <p>
+                Goyang kita ke kanan dong 
+            </p>
+
+
+            <div
+                id="div1"
+                class="drop-area"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)">
+
+                Area 1
+
+                <div
+                    id="dragItem"
+                    draggable="true"
+                    ondragstart="drag(event)">
+
+                    <img
+                        src="https://cdn.phototourl.com/member/2026-09-23-4cea7499-6a92-4d5e-bb8f-1b56015f1cdf.jpg"
+                        alt="Gambar drag and drop"
+                        draggable="false"
+                        width="150">
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="div2"
+                class="drop-area"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)">
+
+                Area 2
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    
+    <footer>
+
+        <p>
+            Praktikum Multimedia - Modul 2
+            <br>
+            Nama : Brandon Sumarlie
+            <br>
+            NIM : 240211060117
+        </p>
+
+    </footer>
+
+    <script>
+
+
+        var myVideo =
+            document.getElementById("video1");
+
+
+        function playPause() {
+
+            if (myVideo.paused) {
+
+                myVideo.play();
+
+            } else {
+
+                myVideo.pause();
+
+            }
+
+        }
+
+
+        function makeBig() {
+
+            myVideo.width = 700;
+
+        }
+
+
+        function makeSmall() {
+
+            myVideo.width = 320;
+
+        }
+
+
+        function makeNormal() {
+
+            myVideo.width = 500;
+
+        }
+
+
+
+        var x =
+            document.getElementById("demo");
+
+
+        function getLocation() {
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(
+                    showPosition,
+                    showError
+                );
+
+            } else {
+
+                x.innerHTML =
+                    "Geolocation tidak didukung oleh browser.";
+
+            }
+
+        }
+
+
+        function showPosition(position) {
+
+            x.innerHTML =
+                "Latitude: "
+                + position.coords.latitude
+                + "<br>"
+                + "Longitude: "
+                + position.coords.longitude
+                + "<br>"
+                + "Akurasi: "
+                + position.coords.accuracy
+                + " meter";
+
+        }
+
+
+        function showError(error) {
+
+            x.innerHTML =
+                "Lokasi tidak dapat ditampilkan. "
+                + "Pastikan izin lokasi diberikan.";
+
+        }
+
+
+
+
+        function allowDrop(ev) {
+
+            ev.preventDefault();
+
+        }
+
+
+        function drag(ev) {
+
+            ev.dataTransfer.setData(
+                "text",
+                ev.target.id
+            );
+
+        }
+
+
+        function drop(ev) {
+
+            ev.preventDefault();
+
+            var data =
+                ev.dataTransfer.getData("text");
+
+            ev.currentTarget.appendChild(
+                document.getElementById(data)
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
